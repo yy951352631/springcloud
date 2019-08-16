@@ -3,9 +3,7 @@ package com.springcloud.controller;
 import com.springcloud.entities.Dept;
 import com.springcloud.service.DeptClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,12 +12,13 @@ import java.util.List;
  * @date 2019/7/31 - 14:09
  */
 @RestController
+@RequestMapping(value = "/")
 public class DeptController_Consumer {
     @Autowired
     private DeptClientService deptClientService;
 
-    @RequestMapping(value = "/consumer/add")
-    public boolean add(Dept deptEntity) {
+    @RequestMapping(method = RequestMethod.POST)
+    public boolean add(@RequestBody Dept deptEntity) {
         return deptClientService.add(deptEntity);
     }
 

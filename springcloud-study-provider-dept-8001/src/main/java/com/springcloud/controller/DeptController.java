@@ -31,9 +31,4 @@ public class DeptController {
         return service.findAll();
     }
 
-    @RequestMapping("/hello")
-    public String sayHello()
-    {
-        return "Hello";
-    }
 }

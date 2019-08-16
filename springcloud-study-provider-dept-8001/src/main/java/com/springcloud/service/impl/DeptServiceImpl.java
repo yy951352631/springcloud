@@ -13,7 +13,6 @@ import java.util.List;
  * @author Wtq
  * @date 2019/7/31 - 10:07
  */
-@Repository
 @Service
 public class DeptServiceImpl implements DeptService {
 

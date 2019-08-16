@@ -13,7 +13,7 @@ import java.util.List;
  * @date 2019/8/1 - 18:03
  */
 //@FeignClient(value = "STUDY-SPRINGCLOUD-DEPT")
-//将我们的异常信息处理统一的放在    DeptClientServiceFallbackFactory 中处理，解决了业务与异常处理的耦合问题
+//将我们的异常信息处理统一的放在DeptClientServiceFallbackFactory 中处理，解决了业务与异常一同处理的耦合问题
 @FeignClient(value = "STUDY-SPRINGCLOUD-DEPT" , fallbackFactory = DeptClientServiceFallbackFactory.class)
 public interface DeptClientService {
     @RequestMapping(value = "/dept/add", method = RequestMethod.POST)

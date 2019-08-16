@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 /**
  * @author Wtq
  * @date 2019/7/31 - 10:31
@@ -27,19 +28,21 @@ public class DeptController {
     public Dept getById(@PathVariable("id") Long id) {
 
         Dept dept = service.findById(id);
-        if(null == dept){
-            throw new RuntimeException("该ID"+id+"没有对应信息");
+        if (null == dept) {
+            throw new RuntimeException("该ID" + id + "没有对应信息");
         }
         return dept;
     }
+
     @RequestMapping(value = "/dept/list", method = RequestMethod.GET)
     public List<Dept> getAll() {
         return service.findAll();
     }
-    public Dept processHystrix_Get(@PathVariable("id") Long id){
+
+    public Dept processHystrix_Get(@PathVariable("id") Long id) {
         Dept errorObj = new Dept();
         errorObj.setDeptno(id);
-        errorObj.setDname("该ID"+id+"没有对应信息 ---Hystrix-null");
+        errorObj.setDname("ID:" + id + "没有对应信息 ---Hystrix-null");
         errorObj.setMydb("no Database in MySql");
         return errorObj;
     }
